@@ -29,7 +29,7 @@ This project showcases a complete CI/CD and monitoring pipeline designed for aut
 
 ## 📊 Monitoring Pipeline
 
-- **Promtail** scrapes the `logs.txt` file
+- **Promtail** scrapes the `logs.json` file
 - Sends logs to **Loki**
 - **Grafana** queries Loki to visualize logs in real-time
 
