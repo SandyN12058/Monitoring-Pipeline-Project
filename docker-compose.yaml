@@ -8,9 +8,6 @@ services:
       - "3100:3100"
     networks:
       - unbox-robotics-net
-    env:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-
 
   promtail:
     image: ${DOCKER_USERNAME}/unbox-robotics-promtail:latest
@@ -19,8 +16,6 @@ services:
       - ./logs:/var/log
     networks:
       - unbox-robotics-net
-    env:
-      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
     depends_on:
       - loki
 
