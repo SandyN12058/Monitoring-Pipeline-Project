@@ -1,7 +1,7 @@
 # 🚀 Unbox Robotics DevOps Assignment
 
 <p align="center">
-  <img src="./diagrams/1-system-architecture.svg" alt="Project Architecture" width="800"/>
+  <img src="./diagrams/2-system-architecture.svg" alt="Project Architecture" width="700"/>
 </p>
 
 This project showcases a complete CI/CD and monitoring pipeline designed for automated deployment, logging, and observability. It integrates Grafana, Promtail, and Loki to enable real-time centralized log visualization and insights from a Dockerized setup on AWS EC2.
