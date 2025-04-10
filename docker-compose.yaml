@@ -2,26 +2,39 @@ version: '3'
 
 services:
   loki:
-    build: ./loki
-    image: loki_img
+    image: ${{ secrets.DOCKER_USERNAME }}/unbox-robotics-loki:latest
     container_name: loki_container
     ports:
       - "3100:3100"
+    networks:
+      - unbox-robotics-net
 
   promtail:
-    build: ./promtail
-    image: promtail_img
+    image: ${{ secrets.DOCKER_USERNAME }}/unbox-robotics-promtail:latest
     container_name: promtail_container
     volumes:
       - ./logs:/var/log
+    networks:
+      - unbox-robotics-net
     depends_on:
       - loki
 
+
   grafana:
-    build: ./grafana
-    image: grafana_img
+    image: grafana/grafana:latest
     container_name: grafana_container
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - unbox-robotics-net
     ports:
       - "3000:3000"
     depends_on:
       - loki
+
+volumes:
+  grafana-storage:
+
+networks:
+  unbox-robotics-net:
+    driver: bridge
