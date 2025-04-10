@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  loki:
+    build: ./loki
+    image: loki_img
+    container_name: loki_container
+    ports:
+      - "3100:3100"
+
+  promtail:
+    build: ./promtail
+    image: promtail_img
+    container_name: promtail_container
+    volumes:
+      - ./logs:/var/log
+    depends_on:
+      - loki
+
+  grafana:
+    build: ./grafana
+    image: grafana_img
+    container_name: grafana_container
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
