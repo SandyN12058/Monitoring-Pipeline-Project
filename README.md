@@ -37,7 +37,7 @@ This project showcases a complete CI/CD and monitoring pipeline for centralized 
 
 ## 🔒 Security Best Practices Followed
 
-- All secrets like DockerHub credentials, EC2 key, and environment variables are stored in **GitHub Secrets**
+- All sensitive variables are stored in **GitHub Secrets**
 - Runtime environment variables are passed via **temporary `.env` file** (deleted after deployment)
 - No hardcoding of sensitive data in any file
 - SSH access to EC2 is secured via **private key in GitHub**
